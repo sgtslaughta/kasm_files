@@ -84,7 +84,7 @@ COPY ./custom_jammy/p10k-config/.p10k.zsh $HOME/.p10k.zsh
 COPY ./custom_jammy/p10k-config/.zshrc $HOME/.zshrc
 
 # Copy the readme file to the desktop
-COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.md
+COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.txt
 
 # Download and run setup script for terminal fonts and p10k
 RUN mkdir $HOME/.fonts

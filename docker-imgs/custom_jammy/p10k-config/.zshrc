@@ -10,6 +10,7 @@ fix_directory_permissions() {
 
 # Call the function with the directory path you want to check
 fix_directory_permissions "$HOME/.oh-my-zsh"
+GTK_THEME=Greybird-dark
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
