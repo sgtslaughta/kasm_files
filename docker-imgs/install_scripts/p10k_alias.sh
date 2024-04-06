@@ -14,9 +14,4 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'MesloLGS NF Regul
 
 sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
 
-chsh -s /bin/zsh
-
-echo "alias ll='ls -lisa'" >> ~/.zshrc
-echo "alias c='clear'" >> ~/.zshrc
-echo "alias cdl='cdl() { cd $1 && ls -lisa; }; cdl'" >> ~/.zshrc
 
