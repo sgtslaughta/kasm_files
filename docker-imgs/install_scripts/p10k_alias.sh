@@ -18,5 +18,5 @@ chsh -s /bin/zsh
 
 echo "alias ll='ls -lisa'" >> ~/.zshrc
 echo "alias c='clear'" >> ~/.zshrc
-echo "alias cdl='cdl() { cd "$1" && ls -lisa; }; cdl'" >> ~/.zshrc
+echo "alias cdl='cdl() { cd $1 && ls -lisa; }; cdl'" >> ~/.zshrc
 
