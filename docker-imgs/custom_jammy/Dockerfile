@@ -79,7 +79,6 @@ RUN wget -O /usr/share/backgrounds/bg_default.png https://i.ibb.co/PzJK7Db/Ubunt
 
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# Fix permissions for Oh-My-Zsh directory
 # Copy the zshrc file to the home directory
 COPY ./custom_jammy/p10k-config/.p10k.zsh $HOME/.p10k.zsh
 COPY ./custom_jammy/p10k-config/.zshrc $HOME/.zshrc
