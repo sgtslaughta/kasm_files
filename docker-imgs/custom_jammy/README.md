@@ -20,3 +20,4 @@ This will build the image locally. Inside the Kasm admin panel, you will specify
 - The first time you use the terminal, you will be prompted to set up Zsh. Follow the instructions to set up the Powerlevel10k theme.
 - Enable persistent sessions to retain your settings between sessions.
 - If the persistent storage is enabled, you can usually find it at `/mnt/share/`.
+- `chmod -R go-w /home/kasm-user/.oh-my-zsh` to clear the warning about insecure directories when using zsh.

@@ -80,7 +80,9 @@ RUN wget -O /usr/share/backgrounds/bg_default.png https://i.ibb.co/PzJK7Db/Ubunt
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # Fix permissions for Oh-My-Zsh directory
-# RUN chmod -R go-w /home/kasm-default-profile/.oh-my-zsh
+RUN chmod -R go-w $HOME/.oh-my-zsh
+# Copy the zshrc file to the home directory
+COPY ./custom_jammy/p10k-config/.p10k.zsh $HOME/.p10k.zsh
 
 # Copy the readme file to the desktop
 COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.md
