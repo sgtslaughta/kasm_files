@@ -115,6 +115,6 @@ USER 1000
 RUN sudo chsh -s /bin/zsh kasm-user
 
 # Open a shell when the user logs in
-RUN xfce4-terminal -e /bin/zsh
+CMD ["zsh"]
 
 
