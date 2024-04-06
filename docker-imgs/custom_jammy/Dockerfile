@@ -52,7 +52,6 @@ WORKDIR $HOME
 
 # Remove the desktop shortcuts
 RUN rm -f /home/kasm-default-profile/Desktop/*.desktop
-RUN mkdir /home/kasm-default-profile/Desktop/cold_storage
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
