@@ -80,6 +80,8 @@ RUN wget -O /usr/share/backgrounds/bg_default.png https://i.ibb.co/PzJK7Db/Ubunt
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+RUN sh -c "chmod -R go-w /home/kasm-default-profile/.oh-my-zsh"
+
 # Download and run setup script for terminal fonts and p10k
 RUN mkdir $HOME/.fonts
 RUN wget -O setup_terminal.sh https://raw.githubusercontent.com/sgtslaughta/kasm_files/main/docker-imgs/install_scripts/p10k_alias.sh \
