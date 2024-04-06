@@ -101,7 +101,7 @@ RUN wget -O /cold_storage_check.sh https://raw.githubusercontent.com/sgtslaughta
     && chmod +x /cold_storage_check.sh
 
 # Add a line to the /etc/profile file to run the cold storage check script
-RUN echo "/cold_storage_check.sh" >> $HOME/.zlogin
+RUN echo "/cold_storage_check.sh" >> /etc/zprofile
 
 
 ######### End Customizations ###########
