@@ -16,8 +16,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     INST_DIR=$STARTUPDIR/install \
     INST_SCRIPTS="/ubuntu/install/tools/install_tools_deluxe.sh \
                   /ubuntu/install/misc/install_tools.sh \
-                  /ubuntu/install/chrome/install_chrome.sh \
-                  /ubuntu/install/chromium/install_chromium.sh \
                   /ubuntu/install/firefox/install_firefox.sh \
                   /ubuntu/install/ansible/install_ansible.sh \
                   /ubuntu/install/terraform/install_terraform.sh \
@@ -59,6 +57,11 @@ RUN apt-get update && apt-get install -y \
     git make zsh terminator wget python3-pip curl chromium-browser sudo \
     && echo 'kasm-user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && rm -rf /var/lib/apt/lists/*
+
+# Install Chrome
+RUN wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && apt-get install -y ./chrome.deb \
+    && rm chrome.deb
 
 # Install PyCharm
 RUN wget -O pycharm.tar.gz https://download.jetbrains.com/python/pycharm-community-2024.1.tar.gz \
