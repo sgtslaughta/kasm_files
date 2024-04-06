@@ -3,7 +3,6 @@ This is a custom image for Ubuntu 22.04 (Jammy Jellyfish) with some additional p
 Starting from the raw ubuntu image, we add the minimal Kasm Workspaces dependencies and some additional packages.
 
 - Firefox
-- Chromium
 - Pycharm
 - Terminator
 - Zsh with the Powerlevel10k theme
