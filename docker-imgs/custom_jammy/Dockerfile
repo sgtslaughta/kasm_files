@@ -98,7 +98,8 @@ RUN $STARTUPDIR/set_user_permission.sh $HOME
 
 ENV HOME /home/kasm-user
 WORKDIR $HOME
+ENV ZSH_PATH=$HOME/.oh-my-zsh
 RUN mkdir -p $HOME && chown -R 1000:0 $HOME
-RUN sh -c "chmod -R go-w ${HOME}/.oh-my-zsh"
+RUN sh -c "chmod -R go-w $ZSH_PATH"
 
 USER 1000
