@@ -15,3 +15,6 @@ Starting from the raw ubuntu image, we add the minimal Kasm Workspaces dependenc
 sudo docker build -f custom_jammy/Dockerfile -t <some_name>:<some_tag_ver> .
 ```
 This will build the image locally. Inside the Kasm admin panel, you will specify the image name and tag.
+
+### Using the image
+- The first time you use the terminal, you will be prompted to set up Zsh. Follow the instructions to set up the Powerlevel10k theme.
