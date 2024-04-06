@@ -73,7 +73,7 @@ ENV PC_CMD='${PC_PATH}/pycharm.sh &'
 # Add text to pycharm.sh desktop file
 RUN echo "[Desktop Entry]\nType=Application\nName=Pycharm CE\nIcon=${PC_PATH}/pycharm.svg\nExec=/bin/bash -c '${PC_CMD}'" >  \
     /home/kasm-default-profile/Desktop/pycharm.desktop \
-    && chmod +x /home/kasm-default-profile/Desktop/pycharm.desktop \
+    && chmod +x /home/kasm-default-profile/Desktop/pycharm.desktop
 
 
 # Update the wallpaper
