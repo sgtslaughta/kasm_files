@@ -100,9 +100,6 @@ COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.txt
 RUN wget -O /cold_storage_check.sh https://raw.githubusercontent.com/sgtslaughta/kasm_files/main/docker-imgs/install_scripts/cold_storage_check.sh \
     && chmod +x /cold_storage_check.sh
 
-# Add a line to the /etc/profile file to run the cold storage check script
-RUN echo "/cold_storage_check.sh" >> /etc/zprofile
-
 
 ######### End Customizations ###########
 
@@ -116,3 +113,5 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 USER 1000
 
 RUN sudo chsh -s /bin/zsh kasm-user
+RUN mkdir -p $HOME/.config/autostart
+COPY ./install_scripts/cold_storage.desktop $HOME/.config/autostart/cold_storage.desktop
