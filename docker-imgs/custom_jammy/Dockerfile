@@ -108,4 +108,4 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 
 USER 1000
 
-RUN chsh -s /bin/zsh
+RUN sudo chsh -s /bin/zsh kasm-user
