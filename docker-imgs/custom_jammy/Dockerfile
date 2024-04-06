@@ -113,5 +113,8 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 USER 1000
 
 RUN sudo chsh -s /bin/zsh kasm-user
-RUN mkdir -p $HOME/.config/autostart
-COPY ./install_scripts/autostart $HOME/.config/autostart/cold_storage.desktop
+
+# Open a shell when the user logs in
+RUN xfce4-terminal -e /bin/zsh
+
+
