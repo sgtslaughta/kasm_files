@@ -43,11 +43,19 @@ ENV HOME /home/kasm-user
 WORKDIR $HOME
 USER root
 
+ENV HOME /home/kasm-default-profile
+ENV STARTUPDIR /dockerstartup
+ENV INST_SCRIPTS $STARTUPDIR/install
+WORKDIR $HOME
+
 ######### Customize Container Here ###########
+
+# Remove the desktop shortcuts
+RUN rm -f /home/kasm-default-profile/Desktop/*.desktop
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
-    git make zsh terminator wget python3-pip curl \
+    git make zsh terminator wget python3-pip curl chromium-browser\
     && rm -rf /var/lib/apt/lists/*
 
 # Install PyCharm
@@ -57,11 +65,15 @@ RUN wget -O pycharm.tar.gz https://download.jetbrains.com/python/pycharm-communi
     && mv /opt/pycharm-* /opt/pycharm
 
 # Create shortcut for PyCharm on desktop
-RUN ln -s /opt/pycharm/bin/pycharm.sh /home/kasm-default-profile/Desktop/pycharm.desktop
+# RUN ln -s /opt/pycharm/bin/pycharm.sh /home/kasm-default-profile/Desktop/pycharm.desktop
 
+ENV PC_PATH=/opt/pycharm/bin
+ENV PC_CMD='${PC_PATH}/pycharm.sh &'
 # Add text to pycharm.sh desktop file
-RUN echo '[Desktop Entry]\nType=Application\nTerminal=true\nName=Pycharm CE\nIcon=utilities-terminal\n' >  \
-    /home/kasm-default-profile/Desktop/pycharm.desktop
+RUN echo "[Desktop Entry]\nType=Application\nName=Pycharm CE\nIcon=${PC_PATH}/pycharm.svg\nExec=/bin/bash -c '${PC_CMD}'" >  \
+    /home/kasm-default-profile/Desktop/pycharm.desktop \
+    && chmod +x /home/kasm-default-profile/Desktop/pycharm.desktop \
+    && chown 1000:0 /home/kasm-default-profile/Desktop/pycharm.desktop \
 
 # Update the wallpaper
 RUN wget -O /usr/share/backgrounds/bg_default.png https://i.ibb.co/PzJK7Db/Ubuntu-Dark1.png
