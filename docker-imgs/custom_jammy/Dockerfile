@@ -97,6 +97,13 @@ CMD ["zsh"]
 # Copy the readme file to the desktop
 COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.txt
 
+# Grab the cold storage check script
+RUN wget -O /cold_storage_check.sh https://raw.githubusercontent.com/sgtslaughta/kasm_files/main/docker-imgs/install_scripts/cold_storage_check.sh \
+    && chmod +x /cold_storage_check.sh
+
+# Add a line to the /etc/profile file to run the cold storage check script
+RUN echo "/cold_storage_check.sh" >> /etc/profile
+
 
 ######### End Customizations ###########
 
