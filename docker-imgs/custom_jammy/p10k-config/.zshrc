@@ -133,4 +133,4 @@ alias c='clear'
 alias gh='history | grep'
 alias l='ls -lha'
 
-xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark"
+# xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark"
