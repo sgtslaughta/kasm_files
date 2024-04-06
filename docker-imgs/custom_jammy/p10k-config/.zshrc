@@ -107,23 +107,20 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 fix_directory_permissions() {
     local directory="$1"
     if [ -d "$directory" ]; then
         # Check if group and others have write permissions
         if [ "$(stat -c '%A' "$directory")" != "drwxr-xr-x" ]; then
-            echo "Fixing permissions for directory: $directory"
             chmod -R go-w "$directory"
-        else
-            echo "Permissions for directory $directory are already correct."
         fi
-    else
-        echo "Directory not found: $directory"
     fi
 }
 
 # Call the function with the directory path you want to check
 fix_directory_permissions "$HOME/.oh-my-zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
