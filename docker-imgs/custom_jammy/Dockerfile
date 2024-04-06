@@ -24,7 +24,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
                   /ubuntu/install/cleanup/cleanup.sh"
 
 # Copy install scripts
-COPY ./src/ $INST_DIR
+COPY ../src/ $INST_DIR
 
 # Run installations
 RUN \
