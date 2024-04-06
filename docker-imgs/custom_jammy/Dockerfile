@@ -87,13 +87,6 @@ COPY ./custom_jammy/p10k-config/.zshrc $HOME/.zshrc
 # Copy the readme file to the desktop
 COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.txt
 
-# Download and run setup script for terminal fonts and p10k
-RUN mkdir $HOME/.fonts
-RUN wget -O setup_terminal.sh https://raw.githubusercontent.com/sgtslaughta/kasm_files/main/docker-imgs/install_scripts/p10k_alias.sh \
-    && chmod +x setup_terminal.sh \
-    && ./setup_terminal.sh
-
-CMD ["zsh"]
 
 ######### End Customizations ###########
 
@@ -105,3 +98,11 @@ WORKDIR $HOME
 RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 
 USER 1000
+
+# Download and run setup script for terminal fonts and p10k
+RUN mkdir $HOME/.fonts
+RUN wget -O setup_terminal.sh https://raw.githubusercontent.com/sgtslaughta/kasm_files/main/docker-imgs/install_scripts/p10k_alias.sh \
+    && chmod +x setup_terminal.sh \
+    && ./setup_terminal.sh
+
+CMD ["zsh"]
