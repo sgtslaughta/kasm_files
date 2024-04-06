@@ -1,9 +1,7 @@
 # kasm_files
 
 ## Custom Images
-- Custom Ubuntu Jammy
+-  src = https://github.com/kasmtech/workspaces-images
 
 ### Custom Image Scripts
 - Jammy helper script
-
-### Desktop Background

@@ -55,7 +55,8 @@ RUN rm -f /home/kasm-default-profile/Desktop/*.desktop
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
-    git make zsh terminator wget python3-pip curl chromium-browser\
+    git make zsh terminator wget python3-pip curl chromium-browser sudo \
+    && echo 'kasm-user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PyCharm
