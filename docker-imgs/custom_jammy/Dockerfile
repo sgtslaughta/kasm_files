@@ -79,7 +79,6 @@ RUN wget -O /usr/share/backgrounds/bg_default.png https://i.ibb.co/PzJK7Db/Ubunt
 
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-RUN sh -c "chmod -R go-w /home/kasm-default-profile/.oh-my-zsh"
 
 # Copy the readme file to the desktop
 COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.md
@@ -100,5 +99,6 @@ RUN $STARTUPDIR/set_user_permission.sh $HOME
 ENV HOME /home/kasm-user
 WORKDIR $HOME
 RUN mkdir -p $HOME && chown -R 1000:0 $HOME
+RUN sh -c "chmod -R go-w ${HOME}/.oh-my-zsh"
 
 USER 1000
