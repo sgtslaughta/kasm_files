@@ -3,6 +3,7 @@ This is a custom image for Ubuntu 22.04 (Jammy Jellyfish) with some additional p
 Starting from the raw ubuntu image, we add the minimal Kasm Workspaces dependencies and some additional packages.
 
 - Firefox
+- Chrome
 - Pycharm
 - Terminator
 - Zsh with the Powerlevel10k theme
@@ -13,7 +14,7 @@ Starting from the raw ubuntu image, we add the minimal Kasm Workspaces dependenc
 # FROM the docker-imgs directory
 sudo docker build -f custom_jammy/Dockerfile -t <some_name>:<some_tag_ver> .
 ```
-This will build the image locally. Inside the Kasm admin panel, you will specify the image name and tag.
+This will build the image **locally**. Inside the Kasm admin panel, you will specify the image name and tag.
 
 ### Using the image
 - On first login, right-click the desktop and open a terminal
@@ -24,4 +25,4 @@ This will build the image locally. Inside the Kasm admin panel, you will specify
     - `c` clear the terminal
     - `h` show history
     - `gh` grep history
-- To rerun the terminal setup, run `p10k configure`.
+- To rerun the Powerlevel10k setup, run `p10k configure`.

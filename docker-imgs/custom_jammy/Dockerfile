@@ -74,6 +74,10 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Set the Chrome binary path as an environment variable (optional)
 ENV CHROME_BIN /usr/bin/google-chrome
 
+# Set the default browser to Chrome
+RUN update-alternatives --install /usr/bin/x-www-browser x-www-browser $CHROME_BIN 200 \
+    && update-alternatives --install /usr/bin/gnome-www-browser gnome-www-browser $CHROME_BIN 200
+
 # Install PyCharm
 RUN wget -O pycharm.tar.gz https://download.jetbrains.com/python/pycharm-community-2024.1.tar.gz \
     && tar -xzf pycharm.tar.gz -C /opt/ \
