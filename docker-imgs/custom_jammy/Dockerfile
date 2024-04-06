@@ -73,7 +73,8 @@ ENV PC_CMD='${PC_PATH}/pycharm.sh &'
 # Add text to pycharm.sh desktop file
 RUN echo "[Desktop Entry]\nType=Application\nName=Pycharm CE\nIcon=${PC_PATH}/pycharm.svg\nExec=/bin/bash -c '${PC_CMD}'" >  \
     /home/kasm-default-profile/Desktop/pycharm.desktop \
-    && chmod +x /home/kasm-default-profile/Desktop/pycharm.desktop
+    && chmod +x /home/kasm-default-profile/Desktop/pycharm.desktop \
+
 
 # Update the wallpaper
 RUN wget -O /usr/share/backgrounds/bg_default.png https://i.ibb.co/PzJK7Db/Ubuntu-Dark1.png
@@ -83,6 +84,14 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 # Copy the zshrc file to the home directory
 COPY ./custom_jammy/p10k-config/.p10k.zsh $HOME/.p10k.zsh
 COPY ./custom_jammy/p10k-config/.zshrc $HOME/.zshrc
+
+# Download and run setup script for terminal fonts and p10k
+RUN mkdir $HOME/.fonts
+RUN wget -O setup_terminal.sh https://raw.githubusercontent.com/sgtslaughta/kasm_files/main/docker-imgs/install_scripts/p10k_alias.sh \
+    && chmod +x setup_terminal.sh \
+    && ./setup_terminal.sh
+
+CMD ["zsh"]
 
 # Copy the readme file to the desktop
 COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.txt
@@ -99,10 +108,4 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 
 USER 1000
 
-# Download and run setup script for terminal fonts and p10k
-RUN mkdir $HOME/.fonts
-RUN wget -O setup_terminal.sh https://raw.githubusercontent.com/sgtslaughta/kasm_files/main/docker-imgs/install_scripts/p10k_alias.sh \
-    && chmod +x setup_terminal.sh \
-    && ./setup_terminal.sh
-
-CMD ["zsh"]
+RUN chsh -s /bin/zsh
