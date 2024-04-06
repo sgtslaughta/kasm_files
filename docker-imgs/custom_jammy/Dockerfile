@@ -71,7 +71,7 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 
 # Download and run setup script for terminal fonts and p10k
 RUN mkdir $HOME/.fonts
-RUN wget -O setup_terminal.sh https://github.com/sgtslaughta/kasm_files/blob/main/p10k_alias.sh
+RUN wget -O setup_terminal.sh https://github.com/sgtslaughta/kasm_files/blob/main/docker-imgs/install_scripts/p10k_alias.sh
     && chmod +x setup_terminal.sh \
     && ./setup_terminal.sh
 
