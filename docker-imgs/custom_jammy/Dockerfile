@@ -79,8 +79,10 @@ RUN wget -O /usr/share/backgrounds/bg_default.png https://i.ibb.co/PzJK7Db/Ubunt
 
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 RUN sh -c "chmod -R go-w /home/kasm-default-profile/.oh-my-zsh"
+
+# Copy the readme file to the desktop
+COPY ./custom_jammy/README.md /home/kasm-default-profile/Desktop/README.md
 
 # Download and run setup script for terminal fonts and p10k
 RUN mkdir $HOME/.fonts
