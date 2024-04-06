@@ -41,6 +41,7 @@ RUN \
 # Userspace Runtime
 ENV HOME /home/kasm-user
 WORKDIR $HOME
+USER root
 
 ######### Customize Container Here ###########
 
