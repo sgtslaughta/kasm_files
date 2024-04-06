@@ -109,4 +109,3 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 USER 1000
 
 RUN sudo chsh -s /bin/zsh kasm-user
-RUN xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark"
