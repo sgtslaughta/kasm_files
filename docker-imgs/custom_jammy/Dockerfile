@@ -109,5 +109,4 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 USER 1000
 
 RUN sudo chsh -s /bin/zsh kasm-user
-# Open the terminal once to set the theme
-RUN /bin/zsh -c "exit"
+mkdir $HOME/Desktop/cold_storage
