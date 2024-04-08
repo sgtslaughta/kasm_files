@@ -84,9 +84,6 @@ RUN wget -O pycharm.tar.gz https://download.jetbrains.com/python/pycharm-communi
     && rm pycharm.tar.gz \
     && mv /opt/pycharm-* /opt/pycharm
 
-# Create shortcut for PyCharm on desktop
-# RUN ln -s /opt/pycharm/bin/pycharm.sh /home/kasm-default-profile/Desktop/pycharm.desktop
-
 ENV PC_PATH=/opt/pycharm/bin
 ENV PC_CMD='${PC_PATH}/pycharm.sh &'
 # Add text to pycharm.sh desktop file
@@ -94,9 +91,8 @@ RUN echo "[Desktop Entry]\nType=Application\nName=Pycharm CE\nIcon=${PC_PATH}/py
     /home/kasm-default-profile/Desktop/pycharm.desktop \
     && chmod +x /home/kasm-default-profile/Desktop/pycharm.desktop
 
-
 # Update the wallpaper
-RUN wget -O /usr/share/backgrounds/bg_default.png https://i.ibb.co/PzJK7Db/Ubuntu-Dark1.png
+COPY ./custom_jammy/wallpapers/crt.png /usr/share/backgrounds/bg_default.png
 
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
